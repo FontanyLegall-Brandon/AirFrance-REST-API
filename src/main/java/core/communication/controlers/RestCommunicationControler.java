@@ -1,8 +1,10 @@
 package core.communication.controlers;
 
 import core.AppEngine;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import core.communication.container.UserCountainer;
+import core.data.User;
+import core.data.exceptions.*;
+import org.springframework.web.bind.annotation.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,5 +23,17 @@ public class RestCommunicationControler{
         return new String("test");
     }
 
+    @PostMapping(value = "/register")
+    @ExceptionHandler({ InvalidEmailException.class,EmptyFieldException.class,NonUniqueEmailException.class,BadGeographicLocationException.class,InvalidEmailException.class,MinimumAgeRequiredException.class })
+    public User resgister(@RequestBody User user) throws InvalidEmailException, EmptyFieldException, NonUniqueEmailException, BadGeographicLocationException, InvalidPhoneNumberException, MinimumAgeRequiredException {
+
+        User createdUser = new User(user);
+
+        //If User created
+        appEngine.addUser(createdUser);
+        log.info("New User created "+createdUser.toString());
+        return createdUser;
+
+    }
 
 }

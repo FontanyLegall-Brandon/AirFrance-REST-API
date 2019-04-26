@@ -7,6 +7,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -23,12 +24,13 @@ public class User{
     private String name;
     private String email;
     private String pwd;
-    private LocalDate birthday;
+    private String birthday;
     private String location;
 
     //Optionnals
     private String address;
     private String phone;
+
 
 
     /**
@@ -76,7 +78,7 @@ public class User{
 
         LocalDate birthdayDate = converteToDate(birthday);
         if (valideAge(birthdayDate)){
-            this.birthday = birthdayDate;
+            this.birthday = birthday;
         }else{
             throw new MinimumAgeRequiredException();
         }
@@ -102,6 +104,10 @@ public class User{
         }
 
 
+    }
+
+    public User(User user) throws InvalidEmailException, EmptyFieldException, NonUniqueEmailException, BadGeographicLocationException, InvalidPhoneNumberException, MinimumAgeRequiredException {
+        this(user.name,user.email,user.pwd,user.birthday,user.location,user.address,user.phone);
     }
 
     /**
@@ -216,7 +222,7 @@ public class User{
         return pwd;
     }
 
-    public LocalDate getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
