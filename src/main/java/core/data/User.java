@@ -46,10 +46,9 @@ public class User{
      * @throws InvalidPhoneNumberException Phone invalid format
      * @throws BadGeographicLocationException Need to be France
      * @throws MinimumAgeRequiredException Need to have more than 18
-     * @throws NonUniqueEmailException The email need to be Unique
      * @throws EmptyFieldException The field need to dont be empty
      */
-    public User(String name, String email, String pwd, String birthday, String location, String address, String phone) throws InvalidEmailException, InvalidPhoneNumberException, BadGeographicLocationException, MinimumAgeRequiredException, NonUniqueEmailException, EmptyFieldException {
+    public User(String name, String email, String pwd, String birthday, String location, String address, String phone) throws InvalidEmailException, InvalidPhoneNumberException, BadGeographicLocationException, MinimumAgeRequiredException, EmptyFieldException {
 
         //Validating Data
         if(name.equals("")){
@@ -106,7 +105,7 @@ public class User{
 
     }
 
-    public User(User user) throws InvalidEmailException, EmptyFieldException, NonUniqueEmailException, BadGeographicLocationException, InvalidPhoneNumberException, MinimumAgeRequiredException {
+    public User(User user) throws InvalidEmailException, EmptyFieldException,  BadGeographicLocationException, InvalidPhoneNumberException, MinimumAgeRequiredException {
         this(user.name,user.email,user.pwd,user.birthday,user.location,user.address,user.phone);
     }
 

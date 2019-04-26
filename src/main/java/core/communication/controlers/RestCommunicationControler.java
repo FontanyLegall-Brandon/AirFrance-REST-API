@@ -23,8 +23,19 @@ public class RestCommunicationControler{
     @Autowired
     AppEngine appEngine;
 
+    /**
+     * Function to register a new user
+     * @param user User
+     * @return User the created user
+     * @throws InvalidEmailException mail invalid
+     * @throws EmptyFieldException empty field on requested fields forbidden
+     * @throws BadGeographicLocationException need to be frensh
+     * @throws InvalidPhoneNumberException need to have a valid phone number (frensh number)
+     * @throws MinimumAgeRequiredException need to have more than 18
+     *
+     */
     @PostMapping(value = "/register")
-    public User resgister(@RequestBody User user) throws InvalidEmailException, EmptyFieldException, NonUniqueEmailException, BadGeographicLocationException, InvalidPhoneNumberException, MinimumAgeRequiredException {
+    public User resgister(@RequestBody User user) throws InvalidEmailException, EmptyFieldException, BadGeographicLocationException, InvalidPhoneNumberException, MinimumAgeRequiredException {
 
         long start = System.currentTimeMillis(); //process time log
         User createdUser = new User(user);
@@ -39,11 +50,21 @@ public class RestCommunicationControler{
 
     }
 
+    /**
+     * Get the list of the registered players
+     * @return UserCountainer a countainer of players
+     */
     @GetMapping(value = "/registered")
     public UserCountainer registered(){
         return new UserCountainer(appEngine.getUserList());
     }
 
+    /**
+     * Get the player form his id
+     * @param id int
+     * @return UserCountainer a countainer of players
+     * @throws UserNotFoundException User not found exception
+     */
     @GetMapping(value = "/registered/{id}")
     public UserCountainer registeredId(@PathVariable int id) throws UserNotFoundException {
         long start = System.currentTimeMillis(); //process time log
