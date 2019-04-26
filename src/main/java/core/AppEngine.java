@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class AppEngine {
@@ -27,13 +28,14 @@ public class AppEngine {
     }
 
 
-
     @Primary
     @Bean(name = "UserEngine")
     @Scope("singleton")
     public AppEngine userEngine() {
         return new AppEngine();
     }
+
+
 
     // GETTERS
     public List<User> getUserList() {
@@ -42,6 +44,12 @@ public class AppEngine {
 
     public Environment getEnv() {
         return env;
+    }
+
+
+    // SETTERS
+    public void addUser(User user) {
+        this.userList.add(user);
     }
 
     @Override
