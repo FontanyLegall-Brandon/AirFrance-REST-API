@@ -3,17 +3,12 @@ package core.communication.controlers;
 import core.AppEngine;
 import core.communication.container.UserCountainer;
 import core.data.User;
-import core.data.exceptions.*;
-import org.springframework.http.HttpStatus;
+import core.communication.exceptions.*;
 import org.springframework.web.bind.annotation.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 
 @RestController
