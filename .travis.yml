@@ -1,0 +1,21 @@
+language: java
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.m2
+
+jdk:
+  - oraclejdk11
+
+jobs:
+
+  include:
+    - stage: "Unit Tests"
+      script: mvn test
+
+    - stage : "Deploy to DockerHub"
+      script :
+        - docker build -t brandonfl/rest-ai:latest .
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker push brandonfl/rest-ai:latest
