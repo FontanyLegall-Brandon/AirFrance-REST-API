@@ -33,7 +33,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>App</mainClass>
+                    <mainClass>core.App</mainClass>
                 </configuration>
             </plugin>
 
