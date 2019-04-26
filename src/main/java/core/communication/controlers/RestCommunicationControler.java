@@ -27,13 +27,19 @@ public class RestCommunicationControler{
     @ExceptionHandler({ InvalidEmailException.class,EmptyFieldException.class,NonUniqueEmailException.class,BadGeographicLocationException.class,InvalidEmailException.class,MinimumAgeRequiredException.class })
     public User resgister(@RequestBody User user) throws InvalidEmailException, EmptyFieldException, NonUniqueEmailException, BadGeographicLocationException, InvalidPhoneNumberException, MinimumAgeRequiredException {
 
+        long start = System.currentTimeMillis();
         User createdUser = new User(user);
 
         //If User created
         appEngine.addUser(createdUser);
         log.info("New User created "+createdUser.toString());
+        long finish = System.currentTimeMillis();
+        long timeElapsed = finish - start;
+        log.info("Processing time : "+timeElapsed+"ms");
         return createdUser;
 
     }
+
+
 
 }
