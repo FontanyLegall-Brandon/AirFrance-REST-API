@@ -11,4 +11,4 @@ FROM anonymoussquad/maven3.5-jdk10-node
 WORKDIR /root/
 COPY --from=builder /usr/src/myapp/target/Basic-User-REST-API-1.0-SNAPSHOT.jar .
 
-ENTRYPOINT ["java", "-jar", "1.0-SNAPSHOT.jar" ]
+ENTRYPOINT ["java", "-jar", "Basic-User-REST-API-1.0-SNAPSHOT.jar" ]
