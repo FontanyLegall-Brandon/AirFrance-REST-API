@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The AppEngine class, here to local store the env and the userList.
+ * The AppEngine is a singleton !
+ */
 @Component
 public class AppEngine {
     @Autowired
@@ -28,10 +32,14 @@ public class AppEngine {
     }
 
 
+    /**
+     * Definition of the singleton
+     * @return AppEngine
+     */
     @Primary
-    @Bean(name = "UserEngine")
+    @Bean(name = "AppEngine")
     @Scope("singleton")
-    public AppEngine userEngine() {
+    public AppEngine appEngine() {
         return new AppEngine();
     }
 
@@ -54,7 +62,7 @@ public class AppEngine {
 
     @Override
     public String toString() {
-        return "UserEngine{" +
+        return "AppEngine{" +
                 "userList=" + userList +
                 '}';
     }

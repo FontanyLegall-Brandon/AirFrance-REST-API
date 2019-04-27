@@ -7,6 +7,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import java.util.Hashtable;
 import java.util.Map;
 
+/**
+ * The main class, is here to launch and define the environment variables of the app
+ */
 @SpringBootApplication
 @EnableAsync
 public class App {
