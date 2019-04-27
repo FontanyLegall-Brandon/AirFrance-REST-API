@@ -37,9 +37,11 @@ $ docker run -it -p 8081:8081 brandonfl/rest-api:latest 8081
 
 ### local testing :
 ```console
-//with basic port
+$ mvn install
+
+//after install, run with basic port
 $ mvn
-//with special port
+//after install, run with special port
 $ mvn -Dexec.args="8081"
 ```
 
