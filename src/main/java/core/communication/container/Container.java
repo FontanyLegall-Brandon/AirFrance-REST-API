@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Container for rest communication. @Data to automatically transform it into json
+ * @param <T>
+ */
 @Data
 public class Container<T> {
 

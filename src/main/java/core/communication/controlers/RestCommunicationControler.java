@@ -1,7 +1,8 @@
 package core.communication.controlers;
 
 import core.AppEngine;
-import core.communication.container.UserCountainer;
+import core.communication.container.ResponseContainer;
+import core.communication.container.UserContainer;
 import core.data.User;
 import core.communication.exceptions.*;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class RestCommunicationControler{
     /**
      * Function to register a new user
      * @param user User
-     * @return User the created user
+     * @return ResponseContainer the response with his status and message status
      * @throws InvalidEmailException mail invalid
      * @throws EmptyFieldException empty field on requested fields forbidden
      * @throws BadGeographicLocationException need to be frensh
@@ -30,7 +31,7 @@ public class RestCommunicationControler{
      *
      */
     @PostMapping(value = "/register")
-    public User resgister(@RequestBody User user) throws InvalidEmailException, EmptyFieldException, BadGeographicLocationException, InvalidPhoneNumberException, MinimumAgeRequiredException {
+    public ResponseContainer resgister(@RequestBody User user) throws InvalidEmailException, EmptyFieldException, BadGeographicLocationException, InvalidPhoneNumberException, MinimumAgeRequiredException {
 
         long start = System.currentTimeMillis(); //process time log
         User createdUser = new User(user);
@@ -41,7 +42,7 @@ public class RestCommunicationControler{
         long finish = System.currentTimeMillis(); //process time log
         long timeElapsed = finish - start; //process time log
         log.info("User creation processing time : "+timeElapsed+"ms"); //process time log
-        return createdUser;
+        return new ResponseContainer(true,"The user has been register");
 
     }
 
@@ -50,8 +51,8 @@ public class RestCommunicationControler{
      * @return UserCountainer a countainer of players
      */
     @GetMapping(value = "/registered")
-    public UserCountainer registered(){
-        return new UserCountainer(appEngine.getUserList());
+    public UserContainer registered(){
+        return new UserContainer(appEngine.getUserList());
     }
 
     /**
@@ -61,7 +62,7 @@ public class RestCommunicationControler{
      * @throws UserNotFoundException User not found exception
      */
     @GetMapping(value = "/registered/{id}")
-    public UserCountainer registeredId(@PathVariable int id) throws UserNotFoundException {
+    public UserContainer registeredId(@PathVariable int id) throws UserNotFoundException {
         long start = System.currentTimeMillis(); //process time log
         if(appEngine.getUserList().size() <= id){
             throw new UserNotFoundException();
@@ -70,7 +71,7 @@ public class RestCommunicationControler{
         long finish = System.currentTimeMillis(); //process time log
         long timeElapsed = finish - start; //process time log
         log.info("User getter processing time : "+timeElapsed+"ms"); //process time log
-        return new UserCountainer(user);
+        return new UserContainer(user);
     }
 
 
