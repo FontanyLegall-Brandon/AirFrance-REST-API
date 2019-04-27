@@ -9,6 +9,6 @@ RUN mvn package
 # Stage 2 (to create a downsized "container executable")
 FROM anonymoussquad/maven3.5-jdk10-node
 WORKDIR /root/
-COPY --from=builder /usr/src/myapp/target/1.0-SNAPSHOT.jar .
+COPY --from=builder /usr/src/myapp/target/Basic-User-REST-API-1.0-SNAPSHOT.jar .
 
 ENTRYPOINT ["java", "-jar", "1.0-SNAPSHOT.jar" ]
