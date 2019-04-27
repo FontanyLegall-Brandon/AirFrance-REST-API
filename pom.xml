@@ -33,7 +33,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>App</mainClass>
+                    <mainClass>core.App</mainClass>
                 </configuration>
             </plugin>
 
@@ -152,6 +152,12 @@
             <artifactId>lombok</artifactId>
             <version>1.18.6</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.11</version>
         </dependency>
 
     </dependencies>
