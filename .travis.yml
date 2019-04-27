@@ -16,6 +16,6 @@ jobs:
 
     - stage : "Deploy to DockerHub"
       script :
-        - docker build -t brandonfl/rest-ai:latest .
+        - docker build -t brandonfl/rest-api:latest .
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker push brandonfl/rest-ai:latest
+        - docker push brandonfl/rest-api:latest
