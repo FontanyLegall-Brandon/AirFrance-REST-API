@@ -12,3 +12,39 @@ Create 2 REST services: one that allows to register a user and the other one tha
  - have a request parameter which is not mandatory and which provides a default value in case is not set-have a path variable
  - clear code and javadoc
  - unit tests-only adults ( age > 18 years)and that live in France can create an account
+
+## Run
+### docker :
+```console
+$ docker pull brandonfl/rest-api:latest
+$ docker run -it -p <port>:<port> brandonfl/rest-api:latest {port}
+```
+ - Paramètres serveur
+	 - `<port>` Port where docker need to publish the application
+	 - `{port}` Optionnal : by default 8080
+
+exemple :
+```console
+$ docker pull brandonfl/rest-api:latest
+$ docker run -it -p 8080:8080 brandonfl/rest-api:latest
+```
+
+Another exemple :
+```console
+$ docker pull brandonfl/rest-api:latest
+$ docker run -it -p 8081:8081 brandonfl/rest-api:latest 8081
+```
+
+### local testing :
+```console
+//with basic port
+$ mvn
+//with special port
+$ mvn -Dexec.args="8081"
+```
+
+## Documentation 
+JavaDoc : /doc/javadoc/
+
+JavaApiDoc : /doc/apidoc/
+
