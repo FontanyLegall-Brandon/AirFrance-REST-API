@@ -46,16 +46,30 @@ public class AppEngine {
 
 
     // GETTERS
+
+    /**
+     * Getter to get the user list
+     * @return List<User>
+     */
     public List<User> getUserList() {
         return userList;
     }
 
+    /**
+     * To get the environment variables
+     * @return Environment
+     */
     public Environment getEnv() {
         return env;
     }
 
 
     // SETTERS
+
+    /**
+     * Setter to add User
+     * @param user User
+     */
     public void addUser(User user) {
         this.userList.add(user);
     }

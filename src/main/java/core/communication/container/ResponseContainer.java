@@ -28,18 +28,34 @@ public class ResponseContainer {
                 '}';
     }
 
+    /**
+     * To get the response status
+     * @return Boolean
+     */
     public Boolean getResponse() {
         return response;
     }
 
+    /**
+     * Setter to set the response status
+     * @param response Boolean
+     */
     public void setResponse(Boolean response) {
         this.response = response;
     }
 
+    /**
+     * Getter at message status
+     * @return String
+     */
     public String getMessage() {
         return message;
     }
 
+    /**
+     * Setter at message status
+     * @param message String
+     */
     public void setMessage(String message) {
         this.message = message;
     }

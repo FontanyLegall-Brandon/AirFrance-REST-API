@@ -1,0 +1,5 @@
+core
+core.communication.container
+core.communication.controlers
+core.communication.exceptions
+core.data
