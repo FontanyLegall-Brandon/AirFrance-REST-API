@@ -1,5 +1,5 @@
 # Basic-User-REST-API 
-[![Build Status](https://travis-ci.com/FontanyLegall-Brandon/AirFrance-REST-API.svg?token=ddDp96SuTBDWqbwuapYh&branch=master)](https://travis-ci.com/FontanyLegall-Brandon/AirFrance-REST-API)  ![](https://img.shields.io/badge/Language-Java-yellow.svg) ![enter image description here](https://img.shields.io/badge/Framework-Spring-brightgreen.svg)
+[![Build Status](https://travis-ci.com/FontanyLegall-Brandon/Basic-REST-API.svg?branch=master)](https://travis-ci.com/FontanyLegall-Brandon/Basic-REST-API)  ![](https://img.shields.io/badge/Language-Java-yellow.svg) ![enter image description here](https://img.shields.io/badge/Framework-Spring-brightgreen.svg)
 
 Author :  [Fontany-Legall Brandon](https://brandon.fontany-legall.xyz)
 
